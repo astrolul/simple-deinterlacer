@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 options=("Auto Detect Field Order" "Deinterlace Top Field First" "Deinterlace Bottom Field First" "Exit Program")
 video_file=$1
