@@ -14,15 +14,15 @@ select choice in "${options[@]}"
 do
     case $choice in
         "Auto Detect Field Order")
-            ffmpeg -hide_banner -i "$video_file" -vf yadif=parity=auto:mode=send_frame -crf 0 -c:a copy 'deinterlaced.mkv'
+            ffmpeg -hide_banner -i "$video_file" -vf "yadif=1" -c:v ffv1 -c:a copy 'deinterlaced.mkv'
             exit
             ;;
         "Deinterlace Top Field First")
-            ffmpeg -hide_banner -i "$video_file" -vf yadif=parity=tff:mode=send_frame -crf 0 -c:a copy 'deinterlaced.mkv'
+            ffmpeg -hide_banner -i "$video_file" -vf "yadif=1:parity=tff" -c:v ffv1 -c:a copy 'deinterlaced.mkv'
             exit
             ;;
         "Deinterlace Bottom Field First")
-            ffmpeg -hide_banner -i "$video_file" -vf yadif=parity=bff:mode=send_frame -crf 0 -c:a copy 'deinterlaced.mkv'
+            ffmpeg -hide_banner -i "$video_file" -vf "yadif=1:parity=bff" -c:v ffv1 -c:a copy 'deinterlaced.mkv'
             exit
             ;;
         "Exit Program")
